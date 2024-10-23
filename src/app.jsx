@@ -1,15 +1,21 @@
 import ReactDOM from "react-dom";
-import Body from "./components/Body";
-import About from "./components/About";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Workout from "./pages/Workout";
+import Diet from "./pages/Diet";
 
 const App = () => {
   return (
     <Router>
       <div className="text-white">
         <Routes>
-          <Route path="/" element={<Body />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/diet" element={<Diet />} />
+          <Route path="/workout" element={<Workout />} />
         </Routes>
       </div>
     </Router>
