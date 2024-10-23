@@ -1,11 +1,12 @@
+import { Outlet } from 'react-router-dom';
 import Header from "./Header";
-import Workouts from "./Workouts";
 
 const Body = () => {
   return (
-    <div className="">
+    <div className='text-white'>
       <Header />
-      <Workouts />
+     
+      <Outlet />
     </div>
   );
 };
