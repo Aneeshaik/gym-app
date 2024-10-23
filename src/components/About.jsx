@@ -1,87 +1,124 @@
+import { motion } from 'framer-motion';
 import batmanTrainer from "../assets/images/batman-trainer.png";
 import batmanTraining from "../assets/images/batman-training.jpg";
 import batmanMission from "../assets/images/batman-mission.jpg";
 import batmanMethodology from "../assets/images/batman-methodology.jpg";
 
 function About() {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
-    <div className="m-10 p-10">
-      <div className="flex justify-between mb-44 mt-20">
-        <div className="text-5xl content-center">
-          DISCOVER INDIA'S BEST PERSONAL TRAINER
-        </div>
-        <img
-          className="rounded-full"
-          src={batmanTrainer}
-          alt="batman-trainer"
-        />
-      </div>
-      <div className="flex justify-between mb-44">
-        <img className="w-1/2" src={batmanTraining} alt="" />
-        <div className="p-10 text-justify text-lg content-center leading-7">
-          <p className="mb-2">
-            Welcome to AMyeS Fitness Training, where you can experience the
-            advantage of personalized training with a dedicated sole personal
-            trainer. As a sole personal trainer, I bring a wealth of knowledge,
-            experience, and passion to every training session. I understand that
-            each person has unique needs and objectives, which is why I
-            prioritize a comprehensive initial consultation. During this
-            consultation, we will discuss your specific goals, assess your
-            current fitness level, and determine any limitations or concerns
-            that may impact your training.
-          </p>
-          <p>
-            At AMyeS Fitness Training, the advantage lies in the ability to
-            design a training program that is entirely customized for you. From
-            the very first session, I will conduct a thorough movement
-            evaluation to analyze your posture, flexibility, strength, and
-            overall movement patterns. This evaluation serves as the foundation
-            for developing a program that addresses your individual strengths,
-            weaknesses, and areas of improvement.
-          </p>
-        </div>
-      </div>
-      <div className="flex mb-44">
-        <div className="content-center">
-          <div className="text-center text-3xl underline">MISSION</div>
-          <div className="p-10 text-justify text-lg leading-7">
-            I understand that everyone has different goals and circumstances
-            when it comes to their fitness journey. That's why my personalized
-            personal training programs are designed to provide you with the most
-            effective and tailored approach to help you achieve your specific
-            goals. Whether you're looking to lose weight, gain muscle, improve
-            your overall fitness, or recover from an injury, I will work closely
-            with you to create a customized plan that fits your individual
-            needs. With my expertise and support, you can be confident that
-            you're receiving the highest quality training that is specifically
-            designed for you. Let me help you take the first step towards a
-            healthier and stronger you.
+    <motion.div 
+      initial="initial"
+      animate="animate"
+      className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white px-6 lg:px-16 py-12"
+    >
+      <motion.div variants={staggerContainer} className="max-w-7xl mx-auto">
+        {/* Hero Section */}
+        <motion.div 
+          variants={fadeInUp}
+          className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-32"
+        >
+          <div className="lg:w-1/2">
+            <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+              DISCOVER INDIA'S BEST PERSONAL TRAINER
+            </h1>
           </div>
-        </div>
-        <img className="w-1/2" src={batmanMission} alt="batman-mission" />
-      </div>
-      <div className="flex">
-        <img className="w-1/2" src={batmanMethodology} alt="" />
-        <div className="content-center">
-          <div className="text-center text-3xl underline">METHODOLOGY</div>
-          <div className="p-10 text-justify text-lg leading-7">
-            The methodology used to develop individualized training programs
-            involves several important steps. Firstly, an initial consultation
-            is conducted to gather information about the client's fitness goals
-            and any specific needs or concerns they may have. Next, a thorough
-            movement evaluation is performed to assess the client's current
-            mobility, strength, and flexibility. This step helps to identify any
-            areas of weakness or imbalances that need to be addressed. Finally,
-            goal assessment is conducted to determine the client's desired
-            outcomes and establish realistic targets. By taking into
-            consideration factors such as the client's exercise experience,
-            current fitness level, time availability, and personal limitations,
-            the trainers are able to create safe and effective programs that are
-            tailored to the individual's unique needs and goals.
+          <motion.img
+            whileHover={{ scale: 1.05 }}
+            className="rounded-full w-64 h-64 lg:w-80 lg:h-80 object-cover shadow-2xl shadow-blue-500/20"
+            src={batmanTrainer}
+            alt="batman-trainer"
+          />
+        </motion.div>
+
+        {/* Training Section */}
+        <motion.div 
+          variants={fadeInUp}
+          className="flex flex-col lg:flex-row items-center gap-12 mb-32"
+        >
+          <motion.img 
+            whileHover={{ scale: 1.02 }}
+            className="lg:w-1/2 rounded-2xl shadow-xl shadow-blue-500/10"
+            src={batmanTraining} 
+            alt="Training"
+          />
+          <div className="lg:w-1/2 space-y-6">
+            <p className="text-lg text-gray-300 leading-relaxed">
+              Welcome to AMyeS Fitness Training, where you can experience the
+              advantage of personalized training with a dedicated sole personal
+              trainer. As a sole personal trainer, I bring a wealth of knowledge,
+              experience, and passion to every training session.
+            </p>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              At AMyeS Fitness Training, the advantage lies in the ability to
+              design a training program that is entirely customized for you.
+            </p>
           </div>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+
+        {/* Mission Section */}
+        <motion.div 
+          variants={fadeInUp}
+          className="flex flex-col lg:flex-row-reverse items-center gap-12 mb-32"
+        >
+          <motion.img 
+            whileHover={{ scale: 1.02 }}
+            className="lg:w-1/2 rounded-2xl shadow-xl shadow-blue-500/10"
+            src={batmanMission} 
+            alt="Mission"
+          />
+          <div className="lg:w-1/2 space-y-6">
+            <h2 className="text-3xl font-bold text-center lg:text-left bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+              OUR MISSION
+            </h2>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              I understand that everyone has different goals and circumstances
+              when it comes to their fitness journey. That's why my personalized
+              training programs are designed to provide you with the most
+              effective and tailored approach to help you achieve your specific
+              goals.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Methodology Section */}
+        <motion.div 
+          variants={fadeInUp}
+          className="flex flex-col lg:flex-row items-center gap-12"
+        >
+          <motion.img 
+            whileHover={{ scale: 1.02 }}
+            className="lg:w-1/2 rounded-2xl shadow-xl shadow-blue-500/10"
+            src={batmanMethodology} 
+            alt="Methodology"
+          />
+          <div className="lg:w-1/2 space-y-6">
+            <h2 className="text-3xl font-bold text-center lg:text-left bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+              OUR METHODOLOGY
+            </h2>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              The methodology used to develop individualized training programs
+              involves several important steps. We begin with an initial consultation,
+              followed by a thorough movement evaluation, and finally a comprehensive
+              goal assessment to create your perfect fitness journey.
+            </p>
+          </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }
 

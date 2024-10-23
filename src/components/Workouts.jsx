@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import Card from "react-bootstrap/Card";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import batmanChest from "../assets/images/batman-chest.jpg";
 import batmanTriceps from "../assets/images/batman-triceps.jpg";
 import batmanBack from "../assets/images/batman-back.jpg";
@@ -9,74 +8,76 @@ import batmanShoulders from "../assets/images/batman-shoulders.jpg";
 import batmanLegs from "../assets/images/batman-legs.jpg";
 import batmanAbs from "../assets/images/batman-abs.jpg";
 
+const WorkoutCard = ({ title, img, index }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="relative group cursor-pointer m-4"
+    >
+      <div className="relative overflow-hidden rounded-xl">
+        <motion.img
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          className="h-80 w-72 object-cover"
+          src={img}
+          alt={title}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileHover={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="absolute bottom-0 left-0 right-0 p-6 text-white"
+        >
+          <h3 className="text-2xl font-bold mb-2">{title}</h3>
+          <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">
+            Click to explore detailed workout plans
+          </p>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Workouts = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const workoutsRef = useRef(null);
-
-  // Intersection Observer to detect when the section is in view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // Stop observing once the section is in view
-        }
-      },
-      {
-        threshold: 0.1, // Adjust based on when you want to trigger the animation
-      },
-    );
-
-    if (workoutsRef.current) {
-      observer.observe(workoutsRef.current);
-    }
-
-    return () => {
-      if (workoutsRef.current) {
-        observer.unobserve(workoutsRef.current);
-      }
-    };
-  }, []);
+  const workouts = [
+    { title: "Chest Workouts", img: batmanChest },
+    { title: "Triceps Workouts", img: batmanTriceps },
+    { title: "Back Workouts", img: batmanBack },
+    { title: "Biceps Workouts", img: batmanBiceps },
+    { title: "Shoulder Workouts", img: batmanShoulders },
+    { title: "Legs Workouts", img: batmanLegs },
+    { title: "Abs Workouts", img: batmanAbs },
+  ];
 
   return (
-    <div
-      ref={workoutsRef}
-      className="flex flex-col justify-center items-center"
-    >
-      <motion.h1
-        className="text-8xl font-semibold mb-6"
-        initial={{ opacity: 0, y: -20 }} // Initial state
-        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }} // Animate based on visibility
-        transition={{ duration: 0.5 }} // Animation duration
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-20 px-6">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-16"
       >
-        Workouts
-      </motion.h1>
-      <div className="flex flex-wrap m-2 items-center justify-center">
-        {[
-          { title: "Chest Workouts", img: batmanChest },
-          { title: "Triceps Workouts", img: batmanTriceps },
-          { title: "Back Workouts", img: batmanBack },
-          { title: "Biceps Workouts", img: batmanBiceps },
-          { title: "Shoulder Workouts", img: batmanShoulders },
-          { title: "Legs Workouts", img: batmanLegs },
-          { title: "Abs Workouts", img: batmanAbs },
-        ].map((workout, index) => (
-          <div key={index} className="bg-white m-10 rounded-lg">
-            <Card className="relative m-2 border border-gray-700 hover:shadow-2xl hover:shadow-sky-400 transition-shadow ">
-              <Card.Img
-                className="h-64 w-auto"
-                variant="top"
-                src={workout.img}
-              />
-              <Card.Body className="p-0">
-                <Card.Text className="absolute bottom-0 p-2 left-0 w-full text-2xl bg-black/50 bg-opacity-75 text-white text-left">
-                  {workout.title}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
+        <h1 className="text-6xl lg:text-8xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-6">
+          Workouts
+        </h1>
+        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          Transform your body with our professionally designed workout programs
+        </p>
+      </motion.div>
+
+      <motion.div 
+        className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        {workouts.map((workout, index) => (
+          <WorkoutCard key={index} {...workout} index={index} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
