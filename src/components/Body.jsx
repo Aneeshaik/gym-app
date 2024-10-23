@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import Header from "./Header";
 import Workouts from "./Workouts";
 
@@ -6,6 +7,7 @@ const Body = () => {
     <div className="">
       <Header />
       <Workouts />
+      <Footer />
     </div>
   );
 };
