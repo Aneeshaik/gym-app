@@ -1,90 +1,84 @@
-import Card from 'react-bootstrap/Card';
-import batmanChest from "../assets/images/batman-chest.jpg"
-import batmanTriceps from "../assets/images/batman-triceps.jpg"
-import batmanBack from "../assets/images/batman-back.jpg"
-import batmanBiceps from "../assets/images/batman-biceps.jpg"
-import batmanShoulders from "../assets/images/batman-shoulders.jpg"
-import batmanLegs from "../assets/images/batman-legs.jpg"
-import batmanAbs from "../assets/images/batman-abs.jpg"
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import Card from "react-bootstrap/Card";
+import batmanChest from "../assets/images/batman-chest.jpg";
+import batmanTriceps from "../assets/images/batman-triceps.jpg";
+import batmanBack from "../assets/images/batman-back.jpg";
+import batmanBiceps from "../assets/images/batman-biceps.jpg";
+import batmanShoulders from "../assets/images/batman-shoulders.jpg";
+import batmanLegs from "../assets/images/batman-legs.jpg";
+import batmanAbs from "../assets/images/batman-abs.jpg";
 
 const Workouts = () => {
-    return (
-        <div className="flex flex-col justify-center items-center">
-            <h1 className='text-4xl font-semibold'>Workouts</h1>
-            <div className='flex flex-wrap m-2 items-center justify-center'>
-            <div className='bg-white m-10 rounded-lg'>
-            <Card className="relative m-2">
-                <Card.Img className="h-64 w-auto" variant="top" src={batmanChest} />
-                <Card.Body className="p-0">
-                    <Card.Text className="absolute bottom-0 p-2 left-0 w-full text-2xl bg-black/50 bg-opacity-75 text-white text-left">
-                        Chest Workouts
-                    </Card.Text>
-                </Card.Body>
+  const [isVisible, setIsVisible] = useState(false);
+  const workoutsRef = useRef(null);
+
+  // Intersection Observer to detect when the section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing once the section is in view
+        }
+      },
+      {
+        threshold: 0.1, // Adjust based on when you want to trigger the animation
+      },
+    );
+
+    if (workoutsRef.current) {
+      observer.observe(workoutsRef.current);
+    }
+
+    return () => {
+      if (workoutsRef.current) {
+        observer.unobserve(workoutsRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={workoutsRef}
+      className="flex flex-col justify-center items-center"
+    >
+      <motion.h1
+        className="text-8xl font-semibold mb-6"
+        initial={{ opacity: 0, y: -20 }} // Initial state
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }} // Animate based on visibility
+        transition={{ duration: 0.5 }} // Animation duration
+      >
+        Workouts
+      </motion.h1>
+      <div className="flex flex-wrap m-2 items-center justify-center">
+        {[
+          { title: "Chest Workouts", img: batmanChest },
+          { title: "Triceps Workouts", img: batmanTriceps },
+          { title: "Back Workouts", img: batmanBack },
+          { title: "Biceps Workouts", img: batmanBiceps },
+          { title: "Shoulder Workouts", img: batmanShoulders },
+          { title: "Legs Workouts", img: batmanLegs },
+          { title: "Abs Workouts", img: batmanAbs },
+        ].map((workout, index) => (
+          <div key={index} className="bg-white m-10 rounded-lg">
+            <Card className="relative m-2 border border-gray-700 hover:shadow-2xl hover:shadow-sky-400 transition-shadow ">
+              <Card.Img
+                className="h-64 w-auto"
+                variant="top"
+                src={workout.img}
+              />
+              <Card.Body className="p-0">
+                <Card.Text className="absolute bottom-0 p-2 left-0 w-full text-2xl bg-black/50 bg-opacity-75 text-white text-left">
+                  {workout.title}
+                </Card.Text>
+              </Card.Body>
             </Card>
-            </div>
-            <div className='bg-white m-10 rounded-lg'>
-            <Card className="relative m-2">
-                <Card.Img className="h-64 w-auto " variant="top" src={batmanTriceps} />
-                <Card.Body className="p-0">
-                    <Card.Text className="absolute bottom-0 p-2 left-0 w-full text-2xl bg-black/50 bg-opacity-75 text-white text-left">
-                        Triceps Workouts
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            </div>
-            <div className='bg-white m-10 rounded-lg'>
-            <Card className="relative m-2">
-                <Card.Img className="h-64 w-auto " variant="top" src={batmanBack} />
-                <Card.Body className="p-0">
-                    <Card.Text className="absolute bottom-0 p-2 left-0 w-full text-2xl bg-black/50 bg-opacity-75 text-white text-left">
-                        Back Workouts
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            </div>
-            <div className='bg-white m-10 rounded-lg'>
-            <Card className="relative m-2">
-                <Card.Img className="h-64 w-auto " variant="top" src={batmanBiceps} />
-                <Card.Body className="p-0">
-                    <Card.Text className="absolute bottom-0 p-2 left-0 w-full text-2xl bg-black/50 bg-opacity-75 text-white text-left">
-                        Biceps Workouts
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            </div>
-            <div className='bg-white m-10 rounded-lg'>
-            <Card className="relative m-2">
-                <Card.Img className="h-64 w-auto " variant="top" src={batmanShoulders} />
-                <Card.Body className="p-0">
-                    <Card.Text className="absolute bottom-0 p-2 left-0 w-full text-2xl bg-black/50 bg-opacity-75 text-white text-left">
-                        Shoulder Workouts
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            </div>
-            <div className='bg-white m-10 rounded-lg'>
-            <Card className="relative m-2">
-                <Card.Img className="h-64 w-auto " variant="top" src={batmanLegs} />
-                <Card.Body className="p-0">
-                    <Card.Text className="absolute bottom-0 p-2 left-0 w-full text-2xl bg-black/50 bg-opacity-75 text-white text-left">
-                        Legs Workouts
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            </div>
-            <div className='bg-white m-10 rounded-lg'>
-            <Card className="relative m-2">
-                <Card.Img className="h-64 w-auto " variant="top" src={batmanAbs} />
-                <Card.Body className="p-0">
-                    <Card.Text className="absolute bottom-0 p-2 left-0 w-full text-2xl bg-black/50 bg-opacity-75 text-white text-left">
-                        Abs Workouts
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            </div>
-            </div>
-        </div>
-    )
-}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Workouts;
