@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import Header from "./Header";
 import Workouts from "./Workouts";
 import HeroSection from "./HeroSection";
@@ -16,6 +17,7 @@ const Body = () => {
       <NutritionPlanSection />
       <PlanSection />
       <Workouts />
+      <Footer />
     </div>
   );
 };
