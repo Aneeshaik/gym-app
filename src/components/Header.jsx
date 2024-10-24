@@ -12,15 +12,14 @@ const Header = () => {
 
       {/* Centered Content */}
       <div className="relative z-10 h-full flex flex-col gap-1 lg:gap-4 items-center justify-center text-center text-white px-4">
-        <h2 className="text-4xl lg:text-[96px] font-semibold mb-1 lg:mb-8">Join AMyeS FiT</h2>
+        <h2 className="text-4xl lg:text-[96px] font-semibold mb-1 lg:mb-8">Join <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">AMyeS FiT</span></h2>
         <p className="text-base lg:text-lg mb-2">
           Get fit and strong with our comprehensive workout programs and
           nutrition plans!
         </p>
-        <button className="w-[165px] h-12 bg-white text-black ">Sign up today</button>
-        {/* <p className="text-lg mb-4">
-          Sign up today and transform your fitness journey!
-        </p> */}
+        <button className="w-[165px] h-12 bg-white text-black rounded-lg transition-all duration-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white">
+    Sign up today
+  </button>
       </div>
 
       {/* Navigation Section */}
