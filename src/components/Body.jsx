@@ -1,12 +1,16 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import Workouts from "./Workouts";
+import { Outlet } from "react-router-dom";
+import Hero from './Hero';
+import Workouts from './Workouts';
 
 const Body = () => {
   return (
-    <div className="">
+    <div className="text-white">
       <Header />
-      <Workouts />
+      <Outlet /> 
+      <Hero/>
+      <Workouts/>
       <Footer />
     </div>
   );
