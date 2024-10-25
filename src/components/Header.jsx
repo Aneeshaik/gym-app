@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import batmanLogo from "../assets/images/batman-logo.png";
 
+
 const Header = () => {
+
+
   return (
     <div className="relative h-screen flex">
       {/* Left Side - Gym Info Section */}
@@ -23,37 +26,38 @@ const Header = () => {
       </div>
       {/* Navigation Section */}
       <div className="absolute top-0 left-0 right-0 p-3 flex justify-between">
+      
         <p className="text-white">AMyeS FiT</p>
         <ul className="flex space-x-20">
           <Link
             to="/"
-            className="hover:text-blue-500 hover:underline hover:decoration-blue-500 cursor-pointer"
+            // className="hover:text-white-500"
           >
-            Home
+           <button className="bg-grey p-4 hover:text-red-500 hover:bg-gray-100 rounded-xl">Home</button>
           </Link>
           <Link
             to="/"
-            className="hover:text-blue-500 hover:underline hover:decoration-blue-500 cursor-pointer"
+           
           >
-            Workouts
+           <button className="bg-grey p-4 hover:text-red-500 hover:bg-gray-100 rounded-xl">Workouts</button>
           </Link>
           <Link
             to="/"
-            className="hover:text-blue-500 hover:underline hover:decoration-blue-500 cursor-pointer"
+         
           >
-            Diet
+          <button className="bg-grey p-4 hover:text-red-500 hover:bg-gray-100 rounded-xl">Diet</button>
           </Link>
           <Link
             to="/"
-            className="hover:text-blue-500 hover:underline hover:decoration-blue-500 cursor-pointer"
+           
           >
-            Contact Us
+         <button className="bg-grey p-4 hover:text-red-500 hover:bg-gray-100 rounded-xl">Contact Us</button>
           </Link>
           <Link
             to="/about"
-            className="hover:text-blue-500 hover:underline hover:decoration-blue-500 cursor-pointer"
+           
           >
-            About Us
+          <button className="bg-grey p-4 hover:text-red-500 hover:bg-gray-100 rounded-xl">About Us</button>
           </Link>
         </ul>
       </div>

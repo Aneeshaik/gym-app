@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
-import Body from "./components/Body";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import About from "./components/About";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Body from "./components/Body";
 
 const App = () => {
   return (
