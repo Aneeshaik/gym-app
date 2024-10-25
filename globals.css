@@ -1,0 +1,72 @@
+/* globals.css */
+
+/* Animated Background */
+.animated-bg {
+    background: linear-gradient(135deg, #141E30, #243B55);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Neon Text Effects */
+  .neon-text-purple {
+    text-shadow: 0 0 10px #7f5af0, 0 0 20px #7f5af0, 0 0 30px #7f5af0;
+  }
+  
+  .neon-text-purple-intense {
+    text-shadow: 0 0 8px #7f5af0, 0 0 16px #7f5af0, 0 0 24px #7f5af0;
+  }
+  
+  .neon-text-pink, .neon-text {
+    text-shadow: 0 0 8px #f0f, 0 0 16px #f0f, 0 0 24px #f0f;
+  }
+  
+  /* Neon Border Effects */
+  .neon-border-purple {
+    box-shadow: 0 0 10px rgba(127, 90, 240, 0.7), 0 0 20px rgba(127, 90, 240, 0.5);
+  }
+  
+  .neon-border-purple-intense {
+    box-shadow: 0 0 15px rgba(127, 90, 240, 0.7), 0 0 25px rgba(127, 90, 240, 0.5);
+  }
+  
+  .neon-border-pink, .neon-border {
+    border: 2px solid rgba(255, 0, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7), 0 0 25px rgba(255, 0, 255, 0.5);
+  }
+  
+  /* Glassmorphism Effects */
+  
+  /* Glassmorphism background */
+  .bg-glow-gradient {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  /* Glassmorphism effect on cards */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Glassmorphism overlay for card titles */
+  .glass-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 15px 15px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  

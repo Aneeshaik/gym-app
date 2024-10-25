@@ -1,3 +1,4 @@
+import React from 'react';
 import batmanTrainer from "../assets/images/batman-trainer.png";
 import batmanTraining from "../assets/images/batman-training.jpg";
 import batmanMission from "../assets/images/batman-mission.jpg";
@@ -7,18 +8,22 @@ function About() {
   return (
     <div className="m-10 p-10">
       <div className="flex justify-between mb-44 mt-20">
-        <div className="text-5xl content-center">
+        <div className="text-5xl content-center neon-text-purple">
           DISCOVER INDIA'S BEST PERSONAL TRAINER
         </div>
         <img
-          className="rounded-full"
+          className="rounded-full transform transition-transform hover:scale-105 hover:shadow-lg shadow-lg"
           src={batmanTrainer}
           alt="batman-trainer"
         />
       </div>
       <div className="flex justify-between mb-44">
-        <img className="w-1/2" src={batmanTraining} alt="" />
-        <div className="p-10 text-justify text-lg content-center leading-7">
+        <img
+          className="w-1/2 rounded-lg transform transition-transform hover:scale-105 hover:shadow-2xl"
+          src={batmanTraining}
+          alt=""
+        />
+        <div className="p-10 text-justify text-lg content-center leading-7 glass-card">
           <p className="mb-2">
             Welcome to AMyeS Fitness Training, where you can experience the
             advantage of personalized training with a dedicated sole personal
@@ -43,8 +48,8 @@ function About() {
       </div>
       <div className="flex mb-44">
         <div className="content-center">
-          <div className="text-center text-3xl underline">MISSION</div>
-          <div className="p-10 text-justify text-lg leading-7">
+          <div className="text-center text-3xl underline neon-text-pink">MISSION</div>
+          <div className="p-10 text-justify text-lg leading-7 glass-card">
             I understand that everyone has different goals and circumstances
             when it comes to their fitness journey. That's why my personalized
             personal training programs are designed to provide you with the most
@@ -58,13 +63,21 @@ function About() {
             healthier and stronger you.
           </div>
         </div>
-        <img className="w-1/2" src={batmanMission} alt="batman-mission" />
+        <img
+          className="w-1/2 rounded-lg transform transition-transform hover:scale-105 hover:shadow-2xl"
+          src={batmanMission}
+          alt="batman-mission"
+        />
       </div>
       <div className="flex">
-        <img className="w-1/2" src={batmanMethodology} alt="" />
+        <img
+          className="w-1/2 rounded-lg transform transition-transform hover:scale-105 hover:shadow-2xl"
+          src={batmanMethodology}
+          alt=""
+        />
         <div className="content-center">
-          <div className="text-center text-3xl underline">METHODOLOGY</div>
-          <div className="p-10 text-justify text-lg leading-7">
+          <div className="text-center text-3xl underline neon-text-purple">METHODOLOGY</div>
+          <div className="p-10 text-justify text-lg leading-7 glass-card">
             The methodology used to develop individualized training programs
             involves several important steps. Firstly, an initial consultation
             is conducted to gather information about the client's fitness goals
