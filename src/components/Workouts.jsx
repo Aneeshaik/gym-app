@@ -41,19 +41,24 @@ const Workouts = () => {
   return (
     <div
       ref={workoutsRef}
-      className="flex flex-col justify-center items-center"
+      className="flex flex-col justify-center items-center bg-glow-gradient p-10 rounded-3xl shadow-lg backdrop-blur-lg"
     >
       <motion.h1
-        className="text-8xl font-semibold mb-6"
-        initial={{ opacity: 0, y: -20 }} // Initial state
-        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }} // Animate based on visibility
-        transition={{ duration: 0.5 }} // Animation duration
+        className="text-8xl font-semibold mb-6 neon-glow text-center animate-pulse"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
+        transition={{ duration: 0.5 }}
       >
         Workouts
       </motion.h1>
-      <div className="flex flex-wrap m-2 items-center justify-center">
-        {[
-          { title: "Chest Workouts", img: batmanChest },
+      <motion.div 
+        className="flex flex-wrap m-2 items-center justify-center gap-8"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
+        transition={{ duration: 0.8 }}
+      >
+        {[{
+          title: "Chest Workouts", img: batmanChest },
           { title: "Triceps Workouts", img: batmanTriceps },
           { title: "Back Workouts", img: batmanBack },
           { title: "Biceps Workouts", img: batmanBiceps },
@@ -61,22 +66,39 @@ const Workouts = () => {
           { title: "Legs Workouts", img: batmanLegs },
           { title: "Abs Workouts", img: batmanAbs },
         ].map((workout, index) => (
-          <div key={index} className="bg-white m-10 rounded-lg">
-            <Card className="relative m-2 border border-gray-700 hover:shadow-2xl hover:shadow-sky-400 transition-shadow ">
-              <Card.Img
-                className="h-64 w-auto"
-                variant="top"
-                src={workout.img}
-              />
+          <motion.div
+            key={index}
+            className="glass-card m-10 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+            whileHover={{ scale: 1.1 }}
+          >
+            <Card className="relative m-2 border border-gray-700 transition-shadow">
+              <motion.div
+                className="overflow-hidden rounded-md animate-glow"
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                <Card.Img
+                  className="h-64 w-auto filter grayscale-[30%] hover:grayscale-0 transition duration-500 ease-in-out"
+                  variant="top"
+                  src={workout.img}
+                />
+              </motion.div>
               <Card.Body className="p-0">
-                <Card.Text className="absolute bottom-0 p-2 left-0 w-full text-2xl bg-black/50 bg-opacity-75 text-white text-left">
-                  {workout.title}
-                </Card.Text>
+                <motion.div
+                  className="glass-overlay absolute bottom-0 left-0 w-full p-4 text-white text-left"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: isVisible ? 1 : 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <Card.Text className="text-2xl text-shadow-glow">
+                    {workout.title}
+                  </Card.Text>
+                </motion.div>
               </Card.Body>
             </Card>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
