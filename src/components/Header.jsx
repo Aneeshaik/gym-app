@@ -6,7 +6,7 @@ const Header = () => {
   const navItems = [
     { title: "Home", path: "/" },
     { title: "Workouts", path: "/" },
-    { title: "Diet", path: "/" },
+    { title: "Diet", path: "/diet" },
     { title: "Contact Us", path: "/" },
     { title: "About Us", path: "/about" },
   ];
