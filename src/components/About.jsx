@@ -3,6 +3,7 @@ import batmanTrainer from "../assets/images/batman-trainer.png";
 import batmanTraining from "../assets/images/batman-training.jpg";
 import batmanMission from "../assets/images/batman-mission.jpg";
 import batmanMethodology from "../assets/images/batman-methodology.jpg";
+import Navbar from './Navbar';
 
 function About() {
   const fadeInUp = {
@@ -25,11 +26,12 @@ function About() {
       animate="animate"
       className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white px-6 lg:px-16 py-12"
     >
+      <Navbar />
       <motion.div variants={staggerContainer} className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <motion.div 
           variants={fadeInUp}
-          className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-32"
+          className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-32 mt-16"
         >
           <div className="lg:w-1/2">
             <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">

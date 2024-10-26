@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import batmanChest from "../assets/images/batman-chest.jpg";
 import batmanTriceps from "../assets/images/batman-triceps.jpg";
 import batmanBack from "../assets/images/batman-back.jpg";
@@ -15,6 +15,7 @@ const WorkoutCard = ({ title, img, index }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative group cursor-pointer m-4"
+      id="workouts"
     >
       <div className="relative overflow-hidden rounded-xl">
         <motion.img
@@ -68,7 +69,7 @@ const Workouts = () => {
         </p>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
