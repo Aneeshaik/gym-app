@@ -5,9 +5,9 @@ import batmanLogo from "../assets/images/batman-logo.png";
 const Header = () => {
   const navItems = [
     { title: "Home", path: "/" },
-    { title: "Workouts", path: "/" },
-    { title: "Diet", path: "/" },
-    { title: "Contact Us", path: "/" },
+    { title: "Workouts", path: "/workouts" },
+    { title: "Diet", path: "/diet" },
+    { title: "Contact Us", path: "/contact" },
     { title: "About Us", path: "/about" },
   ];
 
@@ -103,4 +103,4 @@ const Header = () => {
   );
 };
 
-export default Header;  
+export default Header;
