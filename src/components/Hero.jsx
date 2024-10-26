@@ -1,4 +1,3 @@
-import React from "react";
 import batmanLogo from "../assets/images/batman-logo.png";
 
 const Hero = () => {
