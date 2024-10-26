@@ -27,13 +27,13 @@ export default function Footer() {
   return (
     <footer
       role="contentinfo"
-      class="bg-gray-800 text-white  flex justify-between items-center py-2 px-4"
+      className=" text-white  flex justify-between items-center p-10  shadow-lg shadow-gray-500 bg-gray-900 "
     >
-      <p className="max-sm:text-center">
-        &copy; 2024 Gym App.
-        <span className="text-center mx-6 max-sm:hidden">
-          {" "}
-          All rights reserved.
+      <p className="max-sm:text-center text-xl">
+        2024 AMyes Fit.
+        <span className="text-center mx-6 max-sm:hidden text-sm text-gray-500">
+          {" "}<br/>
+          &copy; All rights reserved.
         </span>
       </p>
       <p className="flex ">
