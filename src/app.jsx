@@ -3,6 +3,7 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Workouts from "./components/Workouts";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Diet from "./components/Diet";
 
 const App = () => {
   return (
@@ -11,7 +12,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Body />} />
           <Route path="/about" element={<About />} />
-          <Route path="/workouts" element={<Workouts />} />
+          <Route path="/diet" element={<Diet />} />
         </Routes>
       </div>
     </Router>
