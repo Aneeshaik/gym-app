@@ -2,11 +2,10 @@
   "name": "gym-app",
   "version": "1.0.0",
   "description": "a gym app for workouts and diet",
-  "main": "index.js",
   "scripts": {
     "start": "npx parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build src/index.html"
+    "build": "parcel build index.html"
 
   },
   "author": "anees",
