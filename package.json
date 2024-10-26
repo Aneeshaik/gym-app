@@ -2,10 +2,11 @@
   "name": "gym-app",
   "version": "1.0.0",
   "description": "a gym app for workouts and diet",
-  "main": "index.js",
   "scripts": {
     "start": "npx parcel index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build index.html"
+
   },
   "author": "anees",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
     "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
